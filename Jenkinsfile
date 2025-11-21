@@ -1,6 +1,21 @@
 pipeline {
       agent any
       stages{
+      
+         // Création image
+        stage('Etape 0 stop and delete mon container') {
+            steps {
+                sh 'docker rm -f cv_salma_container'
+            }
+            post {
+                success {
+                    echo "====++++Container stopped and delete with success++++===="
+                }
+                failure {
+                    echo "====++++Docker failed to stop/delete my container++++===="
+                }
+            }
+        }
         // Création image
         stage('Création de  image docker') {
             steps {
