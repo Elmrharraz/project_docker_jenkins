@@ -19,7 +19,7 @@ pipeline {
           // Création image
         stage('Lancer un container de cette image') {
             steps {
-                sh 'docker run -d -p 8089:80  --name cv_salma_cont cv_salma'
+                sh 'docker run -d -p 8089:80  --name cv_salma_container cv_salma'
             }
             post {
                 success {
